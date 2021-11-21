@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+<h4 class="border-bottom">Post</h4>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <fieldset>
+        <div class="mb-3">
+            {{ form.title.label(class="form-control-label") }} {% if form.title.errors %} {{
+            form.title(class="form-control is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.title.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %} {{ form.title(class="form-control") }} {% endif %}
+        </div>
+        <div class="mb-3">
+            {{ form.content.label(class="form-control-label") }} {% if form.content.errors %} {{
+            form.content(class="form-control is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.content.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %} {{ form.content(class="form-control") }} {% endif %}
+        </div>
+    </fieldset>
+    <button class="btn btn-outline-info mb-3" type="submit">Post</button>
+</form>
+{% endblock content %}

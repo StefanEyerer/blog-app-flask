@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+<h4 class="border-bottom">Post Detail</h4>
+<article class="card mt-4">
+    <div class="card-header d-flex align-items-center justify-content-between">
+        <div>
+            <span class="h6">Author: {{ post.author }}</span>
+            <small class="text-muted ps-2">{{ post.created_at.strftime('%B %d, %Y') }}</small>
+        </div>
+        {% if post.author == current_user %}
+        <div>
+            <a class="btn btn-secondary btn-sm" href="{{ url_for('posts.update', pk=post.id) }}">Update</a>
+            <a class="btn btn-danger btn-sm" href="{{ url_for('posts.delete', pk=post.id) }}">Delete</a>
+        </div>
+        {% endif %}
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{ post.content }}</p>
+    </div>
+</article>
+{% endblock content %}

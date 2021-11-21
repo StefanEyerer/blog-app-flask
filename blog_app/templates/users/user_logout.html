@@ -1,0 +1,7 @@
+{% extends 'base.html' %} {% block content %}
+<h4 class="border-bottom">Logout</h4>
+<h5 class="mt-4">You have been logged out.</h5>
+<small class="text-muted">
+    <a href="{{ url_for('users.login') }}">Back to Login</a>
+</small>
+{% endblock content %}
